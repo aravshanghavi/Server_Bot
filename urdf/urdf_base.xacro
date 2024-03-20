@@ -1,0 +1,421 @@
+<?xml version="1.0" ?>
+<robot name="urdf_base" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find server_bot)/urdf/materials.xacro" />
+<!-- <xacro:include filename="$(find server_bot)/urdf/urdf_base.trans" /> -->
+<xacro:include filename="$(find server_bot)/urdf/urdf_base.gazebo" />
+<link name="base_footprint"/>
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.017964706437151683 7.958078640513123e-15 0.19692457662763105" rpy="0 0 0"/>
+    <mass value="19.185824620104434"/>
+    <inertia ixx="1.663084" iyy="1.844906" izz="1.439572" ixy="-0.0" iyz="0.0" ixz="0.192956"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://server_bot/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://server_bot/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="footprint_link_joint" type="fixed">
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <parent link="base_footprint"/>
+  <child link="base_link"/>
+  <axis xyz="0 0 0"/>
+</joint>
+
+<link name="wheel_4_1">
+  <inertial>
+    <origin xyz="3.802513859341161e-15 0.012999999999998013 4.37983690357302e-07" rpy="0 0 0"/>
+    <mass value="1.6029976514941926"/>
+    <inertia ixx="0.001092" iyy="0.002004" izz="0.001092" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.19 -0.18 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://server_bot/meshes/wheel_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.19 -0.18 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://server_bot/meshes/wheel_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_3_1">
+  <inertial>
+    <origin xyz="2.7478019859472624e-15 0.01300000000000262 4.379836985660135e-07" rpy="0 0 0"/>
+    <mass value="1.6029976514941917"/>
+    <inertia ixx="0.001092" iyy="0.002004" izz="0.001092" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.19 -0.18 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://server_bot/meshes/wheel_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.19 -0.18 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://server_bot/meshes/wheel_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_1_1">
+  <inertial>
+    <origin xyz="-1.887379141862766e-15 -0.013000000000007145 4.379836994611308e-07" rpy="0 0 0"/>
+    <mass value="1.6029976514941915"/>
+    <inertia ixx="0.001092" iyy="0.002004" izz="0.001092" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.19 0.18 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://server_bot/meshes/wheel_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.19 0.18 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://server_bot/meshes/wheel_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_2_1">
+  <inertial>
+    <origin xyz="-3.3306690738754696e-16 -0.013000000000003176 4.379836911760915e-07" rpy="0 0 0"/>
+    <mass value="1.6029976514941926"/>
+    <inertia ixx="0.001092" iyy="0.002004" izz="0.001092" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.19 0.18 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://server_bot/meshes/wheel_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.19 0.18 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://server_bot/meshes/wheel_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera">
+  <inertial>
+          <mass value="0.1" />
+          <inertia ixx="0.01" ixy="0.0" ixz="0"
+          iyy="0.01" iyz="0" izz="0.01" />
+  </inertial>
+
+  <visual>          
+    <geometry>
+      <box size="0.05 0.05 0.025"/>
+    </geometry>
+    <material name="white">
+      <color rgba="1 1 1 1"/>
+    </material>
+  </visual>
+
+  <collision>
+    <geometry>
+        <box size="0.05 0.05 0.025"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar">
+  <inertial>
+          <mass value="0.5" />
+          <inertia ixx="0.01" ixy="0.0" ixz="0"
+          iyy="0.01" iyz="0" izz="0.01" />
+  </inertial>
+  <visual>          
+    <geometry>
+      <cylinder radius="0.025" length="0.015"/>
+    </geometry>
+    <material name="white">
+      <color rgba="1 1 1 1"/>
+    </material>
+  </visual>
+
+  <collision>
+    <geometry>
+        <box size="0.1 0.1 0.1"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_link">
+  <inertial>
+    <mass value="0.3"/>
+    <inertia ixx="0.01" ixy="0.0" ixz="0"
+        iyy="0.01" iyz="0" izz="0.01" />
+  </inertial>
+  <visual>
+    <geometry>
+      <box size="0.05 0.05 0.05"/>
+    </geometry>
+    <material name="white">
+      <color rgba="1 1 1 1"/>
+    </material>
+  </visual>
+  <collision>
+    <geometry>
+        <box size="0.01 0.01 0.005"/>
+    </geometry>
+  </collision>
+
+</link>
+
+<joint name="Revolute 13" type="continuous">
+  <origin xyz="0.19 0.18 0.056794" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_4_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 14" type="continuous">
+  <origin xyz="-0.19 0.18 0.056794" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_3_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 15" type="continuous">
+  <origin xyz="-0.19 -0.18 0.056794" rpy="3.14 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_1_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 16" type="continuous">
+  <origin xyz="0.19 -0.18 0.056794" rpy="3.14 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_2_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="camera_joint" type="fixed">
+  <origin xyz="0.295 0 0.54" rpy="0 0.0 0"/>
+  <parent link="base_link"/>
+  <child link="camera"/>
+  <axis xyz="0.0 0.0 1.0"/>    
+</joint>
+
+<joint name="lidar_joint" type="fixed">
+<origin xyz="0.280 0 0.075" rpy="0 0.0 -1.57"/>
+<parent link="base_link"/>
+<child link="lidar"/>
+<axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="imu_joint" type="fixed">
+<origin xyz="0 0 0.08"/>
+<parent link="base_link"/>
+<child link="imu_link"/>
+<axis xyz="0.0 0.0 1.0"/>
+
+
+</joint>
+
+<gazebo reference="lidar">
+  <material>Gazebo/Blue</material>
+</gazebo>
+
+<gazebo reference="camera">
+  <material>Gazebo/Red</material>
+</gazebo>
+
+
+
+
+<gazebo reference="camera">
+<sensor type="camera" name="camera1">
+  <visualize>true</visualize>
+  <update_rate>30.0</update_rate>
+  <camera name="head">
+    <horizontal_fov>1.3962634</horizontal_fov>
+    <image>
+      <width>800</width>
+      <height>800</height>
+      <format>R8G8B8</format>
+    </image>
+    <clip>
+      <near>0.02</near>
+      <far>300</far>
+    </clip>
+  </camera>
+  <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+    <alwaysOn>true</alwaysOn>
+    <updateRate>60.0</updateRate>
+    <cameraName>/camera1</cameraName>
+    <imageTopicName>image_raw</imageTopicName>
+    <cameraInfoTopicName>info_camera</cameraInfoTopicName>
+    <frameName>camera</frameName>1.57
+    <hackBaseline>0.07</hackBaseline>
+  </plugin>
+</sensor>
+</gazebo>
+
+<gazebo reference="lidar">
+<sensor name="lidar" type="ray">
+  <always_on>true</always_on>
+  <visualize>true</visualize>
+  <update_rate>12.0</update_rate>
+  <plugin filename="libgazebo_ros_laser.so" name="scan">
+    <topicName>/lidar_topic</topicName>
+    <outputType>sensor_msgs/LaserScan</outputType>
+    <frameName>lidar</frameName>
+  </plugin>
+  <ray>
+    <scan>
+      <horizontal>
+        <samples>120</samples>
+        <resolution>10</resolution>
+        <min_angle>0.00</min_angle>
+        <max_angle>6.28</max_angle>
+      </horizontal>
+    </scan>
+    <range>
+      <min>0.6</min>
+      <max>3.5</max>
+      <resolution>0.015</resolution>
+    </range>
+  </ray>
+</sensor>
+</gazebo>
+
+
+<gazebo>
+<plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+  <updateRate>15.0</updateRate>
+  <robotNamespace>/</robotNamespace>
+  <rightFrontJoint>Revolute 16</rightFrontJoint>
+  <leftFrontJoint>Revolute 13</leftFrontJoint>
+  <rightRearJoint>Revolute 15</rightRearJoint>
+  <leftRearJoint>Revolute 14</leftRearJoint>
+  <wheelSeparation>0.4</wheelSeparation>
+  <wheelDiameter>0.215</wheelDiameter>
+  <robotBaseFrame>base_footprint</robotBaseFrame>
+  <torque>40</torque>
+  <topicName>cmd_vel</topicName>
+  <broadcastTF>true</broadcastTF>
+  <publishOdomTF>true</publishOdomTF>
+  <publishOdom>true</publishOdom>
+  
+</plugin>
+
+<!-- <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+  <legacyMode>false</legacyMode>
+  <alwaysOn>true</alwaysOn>
+  <publishWheelTF>true</publishWheelTF>
+  <publishTf>1</publishTf>
+  <publishWheelJointState>true</publishWheelJointState>
+  <updateRate>100.0</updateRate>
+  <leftJoint>Revolute 13</leftJoint>
+  <leftJoint>Revolute 14</leftJoint>
+  <rightJoint>Revolute 16</rightJoint>
+  <rightJoint>Revolute 15</rightJoint>
+  <wheelAcceleration>1.0</wheelAcceleration>
+  <torque>20</torque>
+  <commandTopic>cmd_vel</commandTopic>
+  <odometryTopic>odom</odometryTopic>
+  <odometryFrame>odom</odometryFrame>
+  <robotBaseFrame>base_footprint</robotBaseFrame>
+</plugin> -->
+</gazebo>
+
+<gazebo reference="imu_link">
+<gravity>true</gravity>
+<sensor name="imu_sensor" type="imu">
+<imu>
+    <angular_velocity>
+      <x>
+        <noise type="gaussian">
+          <mean>0.0</mean>
+          <stddev>2e-4</stddev>
+          <bias_mean>0.0000075</bias_mean>
+          <bias_stddev>0.0000008</bias_stddev>
+        </noise>
+      </x>
+      <y>
+        <noise type="gaussian">
+          <mean>0.0</mean>
+          <stddev>2e-4</stddev>
+          <bias_mean>0.0000075</bias_mean>
+          <bias_stddev>0.0000008</bias_stddev>
+        </noise>
+      </y>
+      <z>
+        <noise type="gaussian">
+          <mean>0.0</mean>
+          <stddev>2e-4</stddev>
+          <bias_mean>0.0000075</bias_mean>
+          <bias_stddev>0.0000008</bias_stddev>
+        </noise>
+      </z>
+    </angular_velocity>
+    <linear_acceleration>
+      <x>
+        <noise type="gaussian">
+          <mean>0.0</mean>
+          <stddev>1.7e-2</stddev>
+          <bias_mean>0.1</bias_mean>
+          <bias_stddev>0.001</bias_stddev>
+        </noise>
+      </x>
+      <y>
+        <noise type="gaussian">
+          <mean>0.0</mean>
+          <stddev>1.7e-2</stddev>
+          <bias_mean>0.1</bias_mean>
+          <bias_stddev>0.001</bias_stddev>
+        </noise>
+      </y>
+      <z>
+        <noise type="gaussian">
+          <mean>0.0</mean>
+          <stddev>1.7e-2</stddev>
+          <bias_mean>0.1</bias_mean>
+          <bias_stddev>0.001</bias_stddev>
+        </noise>
+      </z>
+    </linear_acceleration>
+  </imu> 
+<always_on>true</always_on>
+  <update_rate>100</update_rate>
+  <visualize>true</visualize>
+  <topic>imu</topic>
+  <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+    <topicName>imu</topicName>
+    <bodyName>imu_link</bodyName>
+    <updateRateHZ>10.0</updateRateHZ>
+    <gaussianNoise>0.0</gaussianNoise>
+    <xyzOffset>0 0 0</xyzOffset>
+    <rpyOffset>0 0 0</rpyOffset>
+    <frameName>imu_link</frameName>
+    <initial_orientation_as_reference>true</initial_orientation_as_reference>
+  </plugin>
+  <pose>0 0 0 0 0 0</pose>
+</sensor>
+</gazebo>
+
+</robot>
