@@ -3,13 +3,8 @@
   <arg name="map_file" default="$(find server_bot)/maps/my_map.yaml"/>
   <arg name="open_rviz" default="true"/>
   <arg name="move_forward_only" default="false"/>
-
-  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.06 0 0.08 0 0 0 base_link lidar 10" /> 
-  <node pkg="tf" type="static_transform_publisher" name="imu_broadcaster" args="0 0.06 0.02 0 0 0 base_link imu 10" />
-  <node pkg="tf" type="static_transform_publisher" name="base_link_broadcaster" args="0 0 0 0 0 0 base_footprint base_link 10" />
-  <!-- odom to base_footprint transform will be provided by the robot_pose_ekf node -->
   
-  <!-- map to odom will be provided by the AMCL -->
+  <!-- map to odom will be provided by the gmapping -->
   <!-- <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0 0 0 0 0 0 map odom 10" /> -->
 
   <!-- Server Bot -->

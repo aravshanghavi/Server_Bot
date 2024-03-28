@@ -249,7 +249,7 @@
 
 <gazebo reference="camera">
 <sensor type="camera" name="camera1">
-  <visualize>true</visualize>
+  <visualize>false</visualize>
   <update_rate>30.0</update_rate>
   <camera name="head">
     <horizontal_fov>1.3962634</horizontal_fov>
@@ -279,7 +279,7 @@
 <sensor name="lidar" type="ray">
   <always_on>true</always_on>
   <visualize>true</visualize>
-  <update_rate>12.0</update_rate>
+  <update_rate>30.0</update_rate>
   <plugin filename="libgazebo_ros_laser.so" name="scan">
     <topicName>/lidar_topic</topicName>
     <outputType>sensor_msgs/LaserScan</outputType>
@@ -291,11 +291,11 @@
         <samples>120</samples>
         <resolution>10</resolution>
         <min_angle>0.00</min_angle>
-        <max_angle>6.28</max_angle>
+        <max_angle>3.1416</max_angle> <!--3.1416*2-->
       </horizontal>
     </scan>
     <range>
-      <min>0.6</min>
+      <min>0.08</min> <!--0.08-->
       <max>3.5</max>
       <resolution>0.015</resolution>
     </range>
