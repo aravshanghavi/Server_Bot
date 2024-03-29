@@ -288,15 +288,15 @@
   <ray>
     <scan>
       <horizontal>
-        <samples>120</samples>
-        <resolution>10</resolution>
-        <min_angle>0.00</min_angle>
-        <max_angle>3.1416</max_angle> <!--3.1416*2-->
+        <samples>720</samples>
+        <resolution>1</resolution>
+        <min_angle>0.0872</min_angle> <!--for pi/6 or 30 deg-->
+        <max_angle>3.0543</max_angle> <!--3.1416*2 for full 360; 2.0944 for 120 deg; for 150 deg 2.618-->
       </horizontal>
     </scan>
     <range>
       <min>0.08</min> <!--0.08-->
-      <max>3.5</max>
+      <max>6</max>
       <resolution>0.015</resolution>
     </range>
   </ray>

@@ -1,7 +1,7 @@
 <launch>
 
   <!-- Arguments -->
-  <arg name="scan_topic"     default="lidar_topic"/>
+  <arg name="scan_topic"     default="/lidar_topic"/>
   <arg name="initial_pose_x" default="0.0"/>
   <arg name="initial_pose_y" default="0.0"/>
   <arg name="initial_pose_a" default="0.0"/>
@@ -11,11 +11,12 @@
 
 <node pkg="amcl" type="amcl" name="amcl" output="screen">
 
-  <param name="odom_frame_id" value="odom_amcl"/>
+  <param name="odom_frame_id" value="odom"/>
   <param name="base_frame_id" value="base_footprint"/>
   <param name="global_frame_id" value="map"/>
   <param name="odom_model_type" value="diff"/>
   <remap from="scan" to="$(arg scan_topic)"/>
+  <remap from="map" to="/map"/>
 
   <param name="transform_tolerance" value="0.5" />
   <param name="gui_publish_rate" value="10.0"/> <!-- 5 -->
@@ -55,4 +56,7 @@
   <param name="scan_topic" value="$(arg scan_topic)"/>
 
 </node>
+
+<node pkg="tf2_ros" type="static_transform_publisher" name="base_to_odom" args="0 0 0 0 0 0 base_footprint amcl_pose use_sim_time:=true" />
+
 </launch>
